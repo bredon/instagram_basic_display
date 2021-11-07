@@ -33,15 +33,15 @@ module InstagramBasicDisplay
     end
 
     def set_client_id
-      ENV.fetch('INSTAGRAM_CLIENT_ID')
+      ENV.fetch('INSTAGRAM_CLIENT_ID') { Rails.application.credentials.instagram_client_id}
     end
 
     def set_client_secret
-      ENV.fetch('INSTAGRAM_CLIENT_SECRET')
+      ENV.fetch('INSTAGRAM_CLIENT_SECRET') { Rails.application.credentials.instagram_client_secret }
     end
 
     def set_redirect_uri
-      ENV.fetch('INSTAGRAM_REDIRECT_URI')
+      ENV.fetch('INSTAGRAM_REDIRECT_URI') { Rails.application.credentials.instagram_redirect_uri }
     end
   end
 end
